@@ -9,6 +9,10 @@
         <TargetFramework>net9.0-windows7.0</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
+      <Content Include="packages.lock.json" />
+      <Content Include="SliceIsRight.json" />
+    </ItemGroup>
+    <ItemGroup>
       <PackageReference Update="DalamudPackager" Version="12.0.0" />
     </ItemGroup>
 </Project>
