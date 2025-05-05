@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="Dalamud.Plugin.Bootstrap.targets" />
-
-  <PropertyGroup>
-    <Version>0.0.0.1</Version>
-    <Description>A sample plugin.</Description>
-    <PackageProjectUrl>https://github.com/goatcorp/SamplePlugin</PackageProjectUrl>
-    <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
-    <IsPackable>false</IsPackable>
-    <TargetFramework>net9.0-windows7.0</TargetFramework>
-  </PropertyGroup>
+<Project Sdk="Dalamud.NET.Sdk/12.0.2">
+    <PropertyGroup>
+        <Version>1.12.0.2</Version>
+        <Description>Darw danger Zone on Gold Saucer Slice Is Right Game</Description>
+        <PackageProjectUrl>https://github.com/OkuKatsu/SliceIsRight</PackageProjectUrl>
+        <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
+        <IsPackable>false</IsPackable>
+        <TargetFramework>net9.0-windows7.0</TargetFramework>
+    </PropertyGroup>
+    <ItemGroup>
+      <PackageReference Update="DalamudPackager" Version="12.0.0" />
+    </ItemGroup>
 </Project>

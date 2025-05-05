@@ -8,7 +8,6 @@ using System;
 using System.Runtime.InteropServices;
 using System.Numerics;
 using Dalamud.Interface.Utility;
-using FFXIVClientStructs.FFXIV.Client.Game.Object;
 using ObjectKind = Dalamud.Game.ClientState.Objects.Enums.ObjectKind;
 using Dalamud.Game.ClientState.Objects.Types;
 
