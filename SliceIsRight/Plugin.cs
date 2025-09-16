@@ -2,7 +2,7 @@ using Dalamud.IoC;
 using Dalamud.Plugin;
 using Dalamud.Interface.Windowing;
 using Dalamud.Plugin.Services;
-using ImGuiNET;
+using Dalamud.Bindings.ImGui;
 using System.Collections.Generic;
 using System;
 using System.Runtime.InteropServices;
