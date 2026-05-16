@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Dalamud.NET.Sdk/14.0.0">
+<Project Sdk="Dalamud.NET.Sdk/15.0.0">
     <PropertyGroup>
         <Version>1.14.0.2</Version>
         <Description>Darw danger Zone on Gold Saucer Slice Is Right Game</Description>
@@ -13,6 +13,7 @@
       <Content Include="SliceIsRight.json" />
     </ItemGroup>
     <ItemGroup>
-      <PackageReference Update="DalamudPackager" Version="14.0.0" />
+      <PackageReference Update="DalamudPackager" Version="15.0.0" />
+      <PackageReference Update="DotNet.ReproducibleBuilds" Version="2.0.2" />
     </ItemGroup>
 </Project>

@@ -5,6 +5,7 @@ using Dalamud.Plugin.Services;
 using Dalamud.Bindings.ImGui;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Numerics;
 using Dalamud.Interface.Utility;
@@ -33,6 +34,8 @@ public sealed class SliceIsRightPlugin : IDalamudPlugin
 
     private const float MaxDistance = 30f;
 
+    private ICharacter? LocalPlayer => ObjectTable.LocalPlayer;
+
     private enum SliceIsRightModelID
     {
         ModelFallOneSide = 2010777,
@@ -49,7 +52,7 @@ public sealed class SliceIsRightPlugin : IDalamudPlugin
         IsInGoldSaucer = ClientState.TerritoryType == GoldSaucerTerritoryId;
     }
 
-    private void TerritoryChanged(ushort e)
+    private void TerritoryChanged(uint e)
     {
         IsInGoldSaucer = e == GoldSaucerTerritoryId;
     }
@@ -67,7 +70,7 @@ public sealed class SliceIsRightPlugin : IDalamudPlugin
 #if DEBUG
         if (ImGui.Begin("Debug", ImGuiWindowFlags.AlwaysAutoResize | ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoInputs))
         {
-            ImGui.Text("Current zone: " + ClientState.TerritoryType + " Player: " + ClientState.LocalPlayer + " ObjectTable is NULL: " + (ObjectTable == null ? "Yes" : "No"));
+            ImGui.Text("Current zone: " + ClientState.TerritoryType + " Player: " + LocalPlayer + " ObjectTable is NULL: " + (ObjectTable == null ? "Yes" : "No"));
             ImGui.Text("Logged in: " + ClientState.IsLoggedIn + ", In GoldSaucer: " + (IsInGoldSaucer == true ? "Yes" : "No") + ", ObjectTable.Length = " + ObjectTable.Length);
             ImGui.End();
         }
@@ -88,7 +91,7 @@ public sealed class SliceIsRightPlugin : IDalamudPlugin
                 RenderObject(index, obj, model);
             }
 #if DEBUG   // locate Player and Draw FallRound
-            else if (ClientState.LocalPlayer?.ObjectIndex == obj.ObjectIndex)
+            else if (LocalPlayer?.ObjectIndex == obj.ObjectIndex)
             {
                 RenderObject(index, obj, (int)SliceIsRightModelID.ModelFallRound);
             }
@@ -258,6 +261,6 @@ public sealed class SliceIsRightPlugin : IDalamudPlugin
 
     private float DistanceToPlayer(Vector3 center)
     {
-        return Vector3.Distance(ClientState.LocalPlayer?.Position ?? Vector3.Zero, center);
+        return Vector3.Distance(LocalPlayer?.Position ?? Vector3.Zero, center);
     }
 }
